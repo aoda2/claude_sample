@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react"
 import { signOut, useSession } from "next-auth/react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 const API_BASE = "/api"
 
@@ -123,8 +125,10 @@ export default function Home() {
 
           {status === "done" && result && (
             <div className="flex flex-col gap-3">
-              <div className="rounded-xl bg-white border border-gray-200 px-5 py-4 text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">
-                {result.answer}
+              <div className="rounded-xl bg-white border border-gray-200 px-5 py-4 text-sm text-gray-800 prose prose-sm max-w-none">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {result.answer}
+                </ReactMarkdown>
               </div>
               {result.usage && (
                 <p className="text-xs text-gray-400 text-right">{result.usage}</p>
