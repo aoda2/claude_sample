@@ -1,0 +1,33 @@
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Lambda build artifacts
+backend/lambda/.build/
+
+# Node
+node_modules/
+.next/
+.turbo/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+*.swp
